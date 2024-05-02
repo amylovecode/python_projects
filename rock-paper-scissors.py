@@ -6,7 +6,7 @@
 # paper(1)      win      draw        lose
 # scissor(2)    lose      win        draw
 
-
+import random
 rock = '''
     _______
 ---'   ____)
@@ -33,32 +33,18 @@ scissors = '''
       (____)
 ---.__(___)
 '''
-
-import random
+myList = [rock, paper, scissors]
 
 def rock_paper_scissors():
-  compNumber = random.randint(0,2)
-  yourInput = int(input("Enter a number among 0, 1 and 2.\n0 -> rock, 1 -> paper, 2 -> scissor: "))
-  if int(yourInput)== 0 or int(yourInput)== 1 or int(yourInput)==2:
-    if compNumber == 0:
-     print("The computer has: " + rock)
-    elif compNumber == 1:
-     print("The computer has: " + paper)
-    elif compNumber == 2:
-     print("The computer has: " + scissors)
-    
-    if yourInput == 0:
-     print("You have: " + rock)
-    elif yourInput == 1:
-     print("You have: " + paper)
-    elif yourInput == 2:
-     print("You have: " + scissors)
- 
-   
+  compChoice = random.randint(0,2)
+  userInput = int(input("Enter a number among 0, 1 and 2.\n0 -> rock, 1 -> paper, 2 -> scissor: "))
+  if userInput== 0 or userInput== 1 or userInput==2:
+    print("The computer has: " + myList[compChoice])
+    print("You have: " + myList[userInput])
     resultMap = [["A draw!", "You lose!", "You win!"], ["You win!", "A draw!", "You lose!"], ["You lose!", "You win!", "A draw!"]]
-    print("\nResult: " + resultMap[yourInput][compNumber])
+    print("\nResult: " + resultMap[userInput][compChoice])
   else:
-    print("Wrong number! Please restart the game and enter a valid number from 0 to 2!")
+    print("Wrong number! Please restart the game and enter a valid number: 0, 1, or 2!")
 
 
 def main():
